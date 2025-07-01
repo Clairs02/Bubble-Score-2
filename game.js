@@ -36,10 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const info = document.createElement('div');
   info.innerHTML = `
-    <p>2 Szenen: Über & unter Wasser (360°)</p>
-    <p>Klick Objekte, sammle Punkte in 25 Sek.</p>
-    <p>Pfeile ↑ ↓ wechseln die Szene</p>
-    <p>Pause? Zeit stoppen!</p>
+    <p>Schau dich um, sammle so viele Objekte wie möglich in 25 Sekunden!</p>
+    <p>Klick auf Pfeile ↑ ↓, um zwischen den Szenen zu wechseln.</p>
   `;
   info.style.fontSize = '1.5rem';
   info.style.color = '#003366'; // Dunkelblau
@@ -53,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   startButton.style.padding = '15px 30px';
   startButton.style.fontSize = '1.8rem';
   startButton.style.color = 'white';
-  startButton.style.backgroundColor = '#0056b3'; // Schönere Blautöne
+  startButton.style.backgroundColor = '#0056b3'; 
   startButton.style.border = 'none';
   startButton.style.borderRadius = '10px';
   startButton.style.cursor = 'pointer';
@@ -211,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateScore() {
-    scoreDisplay.textContent = `Score: ${score} | Highscore: ${highScore}`;
+    scoreDisplay.textContent = `Punktzahl: ${score} | Highscore: ${highScore}`;
   }
 
   function updateTimer() {
@@ -244,21 +242,20 @@ document.addEventListener('DOMContentLoaded', () => {
       messageSound.play();
     }
 
-    // Zeige das Ergebnis im gleichen Stil wie der Startbildschirm
+    // Zeige nur Score und Highscore nach Ablauf der Zeit
     resultMessage.style.display = 'flex';
     resultMessage.style.flexDirection = 'column';
     resultMessage.style.justifyContent = 'center';
     resultMessage.style.alignItems = 'center';
     resultMessage.style.textAlign = 'center';
-    resultMessage.style.color = '#003366'; // Dunkelblau
-    resultMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.8)'; // Leichter Canvas-Hintergrund
+    resultMessage.style.color = '#003366';
+    resultMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
     resultMessage.style.padding = '20px';
     resultMessage.style.borderRadius = '10px';
-    resultMessage.style.fontFamily = "'Poppins', sans-serif"; // Einheitliche Schriftart
+    resultMessage.style.fontFamily = "'Poppins', sans-serif";
     resultMessage.innerHTML = `
-      <h2 style="font-size: 2rem; margin-bottom: 20px;">Time's up!</h2>
-      <p style="font-size: 1.5rem;">Your Score: <strong>${score}</strong></p>
-      <p style="font-size: 1.5rem;">${isNewHighScore ? `<span style="color: green;">New Highscore: <strong>${highScore}</strong></span>` : `Highscore: <strong>${highScore}</strong>`}</p>
+      <p style="font-size: 1.5rem;">Deine Punktzahl: <strong>${score}</strong></p>
+      <p style="font-size: 1.5rem;">${isNewHighScore ? `<span style="color: green;">Neuer Highscore: <strong>${highScore}</strong></span>` : `Highscore: <strong>${highScore}</strong>`}</p>
     `;
 
     setTimeout(() => {
